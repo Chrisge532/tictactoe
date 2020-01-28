@@ -1,51 +1,123 @@
 <html>
-	<body>
-		
+	<body> 		
 		<script type="text/javascript">
 		
+		let oSpieler = 'o'
+		let xSpieler = 'x'
 		
-		function meinAlert(text, text2) {
-			alert('Meldung ' + text + ' ' + text2)	
+		let aktiverSpieler = xSpieler
+		
+		function macheZug(id) {
+			// alert('Meldung ' + id )	
+			document.getElementById(id).value = aktiverSpieler
+			document.getElementById(id).disabled = true
 			//console.log('Ich bin die Konsole: ' + text2)
+			
+			pruefeEnde(aktiverSpieler)
+			
+			wechsleSpieler()
+			
 		}
 		
 		
+		function wechsleSpieler() {
+			if (aktiverSpieler == xSpieler) {
+				aktiverSpieler = oSpieler
+			} else {
+				aktiverSpieler = xSpieler
+			}
+		}		
 		
+		function nenneGewinner(gewinner, button1, button2, button3) {
+			// alert(gewinner + ' gewinnt')
+			console.log(gewinner + ' gewinnt')
+			
+
+			button1.style.backgroundColor = '#ff1a1a'
+			button2.style.backgroundColor = '#ff1a1a'
+			button3.style.backgroundColor = '#ff1a1a'
+
+			
+			blockiereZellen()
+		    }	
+		
+		     function blockiereZellen() {
+		
+			  //document.getElementById(id).disabled = true
+		
+		    }
+		
+			 
+	 
+	         function pruefeEnde(symbol) {
+			//die Funktion pruefeEnde soll ein Alert mit dem Gewinner machen, wenn
+			// 
+			
+			
+			        if (document.getElementById('0-0').value == symbol && document.getElementById('1-0').value == symbol && document.getElementById('2-0').value == symbol){
+				      nenneGewinner(symbol,document.getElementById('0-0'), document.getElementById('1-0'), document.getElementById('2-0'))
+			       }
+						 
+			
+		            if (document.getElementById('0-1').value == symbol && document.getElementById('1-1').value == symbol && document.getElementById('2-1').value == symbol){
+				      nenneGewinner(symbol,document.getElementById('0-1'), document.getElementById('1-1'), document.getElementById('2-1'))
+			        }
+		
+			          if (document.getElementById('0-2').value == symbol && document.getElementById('1-2').value == symbol && document.getElementById('2-2').value == symbol){
+				      nenneGewinner(symbol,document.getElementById('0-2'), document.getElementById('1-2'), document.getElementById('2-2'))
+			        }
+			          if (document.getElementById('0-0').value == symbol && document.getElementById('0-1').value == symbol && document.getElementById('0-2').value == symbol){
+				      nenneGewinner(symbol,document.getElementById('0-0'), document.getElementById('0-1'), document.getElementById('0-2'))
+			        }
+			          if (document.getElementById('1-0').value == symbol && document.getElementById('1-1').value == symbol && document.getElementById('1-2').value == symbol){
+				      nenneGewinner(symbol,document.getElementById('1-0'), document.getElementById('1-1'), document.getElementById('1-2'))
+			        }
+			          if (document.getElementById('2-0').value == symbol && document.getElementById('2-1').value == symbol && document.getElementById('2-2').value == symbol){
+				      nenneGewinner(symbol,document.getElementById('2-0'), document.getElementById('2-1'), document.getElementById('2-2'))
+			        }
+			          if (document.getElementById('0-0').value == symbol && document.getElementById('1-1').value == symbol && document.getElementById('2-2').value == symbol){
+				      nenneGewinner(symbol,document.getElementById('0-0'), document.getElementById('1-1'), document.getElementById('2-2'))
+			        }
+			          if (document.getElementById('0-2').value == symbol && document.getElementById('1-1').value == symbol && document.getElementById('2-0').value == symbol){
+				      nenneGewinner(symbol,document.getElementById('0-2'), document.getElementById('1-1'), document.getElementById('2-0'))
+			        }
+	 }
+	 
 		</script>
 	
 	
 		<table>
 			<tr>
 				<td>
-				    <input type="button" value="0,0" onClick="meinAlert('0:0', 'hallo')"    ></input>
+				    <input id="0-0" type="button" style="min-width:120px;min-height:120px;font-size:70pt;"  onClick="macheZug('0-0')"></input>
 				</td>
 				<td>
-				    <input type="button" value="1,0"  onClick="meinAlert('1,0', 'ertz')" ></input>
+				    <input id="1-0" type="button" style="min-width:120px;min-height:120px;font-size:70pt;"  onClick="macheZug('1-0')"></input>
 				</td>
 				<td>
-				    <input type="button" value="2,0" onClick="meinAlert('2,0')"></input>
+				    <input id="2-0" type="button" style="min-width:120px;min-height:120px;font-size:70pt;"  onClick="macheZug('2-0')"></input>
 				</td>
 			</tr>
 			<tr>
 				<td>
-				    <input type="button" value="0,1" onClick="meinAlert('0,1')" ></input>
+				    <input id="0-1" type="button" style="min-width:120px;min-height:120px;font-size:70pt;"  onClick="macheZug('0-1')"></input>
 				</td>
 				<td>
-				    <input type="button" value="1,1" onClick="meinAlert('1,1')"></input>
+				    <input id="1-1" type="button" style="min-width:120px;min-height:120px;font-size:70pt;"  onClick="macheZug('1-1')"></input>
 				</td>
 				<td>
-				    <input type="button" value="2,1"></input>
+				    <input id="2-1" type="button" style="min-width:120px;min-height:120px;font-size:70pt;"  onClick="macheZug('2-1')"></input>
 				</td>
 		    </tr>
 			<tr>
 			    <td>
-				    <input type="button" value="0,2"></input>
+				    <input id="0-2" type="button" style="min-width:120px;min-height:120px;font-size:70pt;"  onClick="macheZug('0-2')"></input>
 			    </td>
 				<td>
-				    <input type="button" value="1,2"></input>
+				    <input id="1-2" type="button" style="min-width:120px;min-height:120px;font-size:70pt;"  onClick="macheZug('1-2')"></input>
 		        </td>
 				<td>
-				    <input type="button" value="2,2"></input>
+				    <input id="2-2" type="button" style="min-width:120px;min-height:120px;font-size:70pt;"  onClick="macheZug('2-2')"></input>
 				</td>
 		    </tr>
 		</table>
