@@ -8,10 +8,8 @@
 		let aktiverSpieler = xSpieler
 		
 		function macheZug(id) {
-			// alert('Meldung ' + id )	
 			document.getElementById(id).value = aktiverSpieler
 			document.getElementById(id).disabled = true
-			//console.log('Ich bin die Konsole: ' + text2)
 			
 			pruefeEnde(aktiverSpieler)
 			
@@ -29,21 +27,40 @@
 		}		
 		
 		function nenneGewinner(gewinner, button1, button2, button3) {
-			// alert(gewinner + ' gewinnt')
-			console.log(gewinner + ' gewinnt')
+        // alert(gewinner + ' gewinnt')console.log(gewinner + ' gewinnt')
 			
-
-			button1.style.backgroundColor = '#ff1a1a'
-			button2.style.backgroundColor = '#ff1a1a'
-			button3.style.backgroundColor = '#ff1a1a'
+        // die 3 Knöpfe(Buttons)sind die 3 Gewinner Knöpfe,sie bekommen von der Funktion die drei Gewinnzellen,die Buttons markieren diese 3 zellen dann rot (fflala) und             
+        // markieren dadurch den Gewinner
+			let farbe = '#ff1a1a'		
+			button1.style.backgroundColor = farbe
+			button2.style.backgroundColor = farbe
+			button3.style.backgroundColor = farbe
 
 			
 			blockiereZellen()
-		    }	
+		 }	
 		
 		     function blockiereZellen() {
-		
-			  //document.getElementById(id).disabled = true
+
+				//
+				let x
+				//
+				let y
+				// suche nach for schleife
+				
+				//
+				for(y = 0; y < 3; y= y+1) 
+				{
+					// 
+					//console.log('x = ' + x)
+					for(x = 0; x < 3; x= x+1) 	
+					{
+						// 
+				//		console.log('y = '+ y)
+					//	console.log(x + '-' + y)
+						document.getElementById(x + '-' + y).disabled = true
+					}
+				}
 		
 		    }
 		
@@ -53,19 +70,56 @@
 			//die Funktion pruefeEnde soll ein Alert mit dem Gewinner machen, wenn
 			// 
 			
+		//Die  Zahlen sollen die Gewinnoptionen anzeigen, wenn eine von diesen Zahlenkombinationen so in der Tabelle(TicTacToe)existiert wird der Befehl durch die Funktion 
+	    //an die 3 Buttons weitergeleitet    
+
+			// Für jede der möglichen Gewinnkombinationen wird geprüft, ob sie eingetreten ist (if (...)). Wenn ja, wird das Gewinnersymbol zusammen mit 
+			// den drei Gewinnerfeldern an die Funktion nenneGewinner übergeben
 			
-			        if (document.getElementById('0-0').value == symbol && document.getElementById('1-0').value == symbol && document.getElementById('2-0').value == symbol){
+			
+				
+				/*
+				for(x = 0; x < 3; x= x+1) 
+				{
+					if (document.getElementById(x+'-0').value == symbol && document.getElementById('1-'+y).value == symbol && document.getElementById('2-'+y).value == symbol){
+				      nenneGewinner(symbol,document.getElementById(x+'-0'), document.getElementById('1-'+y), document.getElementById('2-'+y))
+			       }
+				}
+				*/
+				
+				
+				
+				  
+				for(y = 0; y < 3; y= y+1) 
+				{
+				
+					console.log('0-'+y + '           ' + '1-'+y + '           ' + '2-'+y)
+				
+				
+					if (document.getElementById('0-'+y).value == symbol && document.getElementById('1-'+y).value == symbol && document.getElementById('2-'+y).value == symbol){
+				      nenneGewinner(symbol,document.getElementById('0-'+y), document.getElementById('1-'+y), document.getElementById('2-'+y))
+					 // return
+			       }
+				}
+			
+					/*
+					if (document.getElementById('0-0').value == symbol && document.getElementById('1-0').value == symbol && document.getElementById('2-0').value == symbol){
 				      nenneGewinner(symbol,document.getElementById('0-0'), document.getElementById('1-0'), document.getElementById('2-0'))
 			       }
-						 
+					 
 			
-		            if (document.getElementById('0-1').value == symbol && document.getElementById('1-1').value == symbol && document.getElementById('2-1').value == symbol){
+		              if (document.getElementById('0-1').value == symbol && document.getElementById('1-1').value == symbol && document.getElementById('2-1').value == symbol){
 				      nenneGewinner(symbol,document.getElementById('0-1'), document.getElementById('1-1'), document.getElementById('2-1'))
 			        }
 		
 			          if (document.getElementById('0-2').value == symbol && document.getElementById('1-2').value == symbol && document.getElementById('2-2').value == symbol){
 				      nenneGewinner(symbol,document.getElementById('0-2'), document.getElementById('1-2'), document.getElementById('2-2'))
 			        }
+					*/
+					
+					
+					
+					
 			          if (document.getElementById('0-0').value == symbol && document.getElementById('0-1').value == symbol && document.getElementById('0-2').value == symbol){
 				      nenneGewinner(symbol,document.getElementById('0-0'), document.getElementById('0-1'), document.getElementById('0-2'))
 			        }
@@ -75,7 +129,10 @@
 			          if (document.getElementById('2-0').value == symbol && document.getElementById('2-1').value == symbol && document.getElementById('2-2').value == symbol){
 				      nenneGewinner(symbol,document.getElementById('2-0'), document.getElementById('2-1'), document.getElementById('2-2'))
 			        }
-			          if (document.getElementById('0-0').value == symbol && document.getElementById('1-1').value == symbol && document.getElementById('2-2').value == symbol){
+					
+					
+					
+			        if (document.getElementById('0-0').value == symbol && document.getElementById('1-1').value == symbol && document.getElementById('2-2').value == symbol){
 				      nenneGewinner(symbol,document.getElementById('0-0'), document.getElementById('1-1'), document.getElementById('2-2'))
 			        }
 			          if (document.getElementById('0-2').value == symbol && document.getElementById('1-1').value == symbol && document.getElementById('2-0').value == symbol){
