@@ -1,0 +1,14 @@
+    
+	
+	
+	<html>
+	var min = 0;
+    var max = 10;
+    var x = (Math.random() * (max - min)) + min;
+
+
+	
+	
+	
+
+</html>

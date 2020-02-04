@@ -1,25 +1,7 @@
 <html>
-
-<head>
-<style>
-body {
-  background-color: rgb(90, 145, 133);
-}
-a {
-	color: rgb(255,255,255);
-}
-h1 {
-  color: maroon;
-  margin-left: 40px;
-}
-</style>
-</head>
 	<body> 		
-		
-	    
-	   
-	   
 		<script type="text/javascript">
+		
 		let oSpieler = 'o'
 		let xSpieler = 'x'
 		
@@ -29,165 +11,9 @@ h1 {
 			document.getElementById(id).value = aktiverSpieler
 			document.getElementById(id).disabled = true
 			
-			let xHatGewonnen = pruefeEnde(aktiverSpieler)
-			
-			if (xHatGewonnen == true) {
-				return 
-			}
-			
-			
-			wechsleSpieler()
-			
-			// jetzt ist der Computergegner dran
-			
-			// hier soll oSpieler einen Zug machen
-			
-			let feldWurdeGefunden = false
-			
-			while(feldWurdeGefunden == false) {
-			
-				let zufallszahl = Math.floor(Math.random() * 9) + 1		
-
-//console.log(		zufallszahl)		
-				// Zahl zwischen 1 und 9
-				if (zufallszahl == 1) {
-					let button = document.getElementById('0-0')
-					if (button.value != 'x' && button.value != 'o') {
-						button.value = aktiverSpieler
-						button.disabled = true
-						feldWurdeGefunden = true
-					}
-			    }
-
-			
-			
-
-
-				if (zufallszahl == 2) {
-					let button = document.getElementById('1-0')
-					if (button.value != 'x' && button.value != 'o') {
-						button.value = aktiverSpieler
-						button.disabled = true
-						feldWurdeGefunden = true
-					}
-				}
-			
-			
-				if (zufallszahl == 3) {
-					let button = document.getElementById('2-0')
-					if (button.value != 'x' && button.value != 'o') {
-						button.value = aktiverSpieler
-						button.disabled = true
-						feldWurdeGefunden = true
-					}
-				}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-				
-				if (zufallszahl == 4) {
-					let button = document.getElementById('0-1')
-					if (button.value != 'x' && button.value != 'o') {
-						button.value = aktiverSpieler
-						button.disabled = true
-						feldWurdeGefunden = true
-					}
-				}
-			
-			
-			
-			
-			
-			
-			
-			
-	
-				if (zufallszahl == 5) {
-					let button = document.getElementById('1-1')
-					if (button.value != 'x' && button.value != 'o') {
-						button.value = aktiverSpieler
-						button.disabled = true
-						feldWurdeGefunden = true
-					}
-				}
-			
-			
-			
-	
-				if (zufallszahl == 6) {
-					let button = document.getElementById('2-1')
-					if (button.value != 'x' && button.value != 'o') {
-						button.value = aktiverSpieler
-						button.disabled = true
-						feldWurdeGefunden = true
-					}
-				}
-			
-			
-			
-			
-			
-				
-				if (zufallszahl == 7) {
-					let button = document.getElementById('0-2')
-					if (button.value != 'x' && button.value != 'o') {
-						button.value = aktiverSpieler
-						button.disabled = true
-						feldWurdeGefunden = true
-					}
-				}
-			
-			
-			
-			
-				
-				if (zufallszahl == 8) {
-					let button = document.getElementById('1-2')
-					if (button.value != 'x' && button.value != 'o') {
-						button.value = aktiverSpieler
-						button.disabled = true
-						feldWurdeGefunden = true
-					}
-				}
-			
-			
-			
-			
-				
-				if (zufallszahl == 9) {
-					let button = document.getElementById('2-2')
-					if (button.value != 'x' && button.value != 'o') {
-						button.value = aktiverSpieler
-						button.disabled = true
-						feldWurdeGefunden = true
-					}
-				}
-			
-			
-			}
-			
-			
-			
-			
-			
-			
-			
-			
 			pruefeEnde(aktiverSpieler)
 			
-		
-			
 			wechsleSpieler()
-			
-			
-			
-			
 			
 		}
 		
@@ -205,7 +31,7 @@ h1 {
 			
         // die 3 Knöpfe(Buttons)sind die 3 Gewinner Knöpfe,sie bekommen von der Funktion die drei Gewinnzellen,die Buttons markieren diese 3 zellen dann rot (fflala) und             
         // markieren dadurch den Gewinner
-			let farbe = '#ffee00'		
+			let farbe = '#ff1a1a'		
 			button1.style.backgroundColor = farbe
 			button2.style.backgroundColor = farbe
 			button3.style.backgroundColor = farbe
@@ -267,12 +93,12 @@ h1 {
 				for(y = 0; y < 3; y= y+1) 
 				{
 				
-					//console.log('0-'+y + '           ' + '1-'+y + '           ' + '2-'+y)
+					console.log('0-'+y + '           ' + '1-'+y + '           ' + '2-'+y)
 				
 				
 					if (document.getElementById('0-'+y).value == symbol && document.getElementById('1-'+y).value == symbol && document.getElementById('2-'+y).value == symbol){
 				      nenneGewinner(symbol,document.getElementById('0-'+y), document.getElementById('1-'+y), document.getElementById('2-'+y))
-					 return true
+					 // return
 			       }
 				}
 			
@@ -291,40 +117,33 @@ h1 {
 			        }
 					*/
 					
-					/*Gewinnkombinationen*/
+					
 					
 					
 			          if (document.getElementById('0-0').value == symbol && document.getElementById('0-1').value == symbol && document.getElementById('0-2').value == symbol){
 				      nenneGewinner(symbol,document.getElementById('0-0'), document.getElementById('0-1'), document.getElementById('0-2'))
-					  return true
 			        }
 			          if (document.getElementById('1-0').value == symbol && document.getElementById('1-1').value == symbol && document.getElementById('1-2').value == symbol){
 				      nenneGewinner(symbol,document.getElementById('1-0'), document.getElementById('1-1'), document.getElementById('1-2'))
-					  return true
 			        }
 			          if (document.getElementById('2-0').value == symbol && document.getElementById('2-1').value == symbol && document.getElementById('2-2').value == symbol){
 				      nenneGewinner(symbol,document.getElementById('2-0'), document.getElementById('2-1'), document.getElementById('2-2'))
-					  return true
 			        }
 					
 					
 					
 			        if (document.getElementById('0-0').value == symbol && document.getElementById('1-1').value == symbol && document.getElementById('2-2').value == symbol){
 				      nenneGewinner(symbol,document.getElementById('0-0'), document.getElementById('1-1'), document.getElementById('2-2'))
-					  return true
 			        }
 			          if (document.getElementById('0-2').value == symbol && document.getElementById('1-1').value == symbol && document.getElementById('2-0').value == symbol){
 				      nenneGewinner(symbol,document.getElementById('0-2'), document.getElementById('1-1'), document.getElementById('2-0'))
-					  return true
 			        }
-					
-					return false
 	 }
 	 
 		</script>
 	
 	
-
+<body>
 		
 		<table>
 		<tr>
@@ -373,17 +192,6 @@ h1 {
     </table>		
 	
 		<a href="anleitung.html" target="_blank" >Hier eine Anleitung oeffnen</a>
-		
-		<!--
-		
-		<h1> </h1>
-		<h2> </h2>
-		<p>
-		</p>
-		
-		-->
-	
-	
 	
     </body>
 </html>	
